@@ -8,9 +8,28 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'assignment-3';
   displayText = false;
-  
+  buttonClicks : number[] = [];
 
-  onDisplayDetails(){
+
+  onDisplayDetails(event: Event){
     this.displayText = true;
+    this.buttonClicks.push(Math.trunc(event.timeStamp));
   }
+
+  getColor(){
+    var color = '';
+    if(this.buttonClicks.length > 5) {
+      var newArr = this.buttonClicks.slice(5);
+      console.log(newArr);
+      newArr.forEach(element => {
+        color = 'red';
+      });
+    } else {
+        color='blue';
+    }
+
+    return color;
+  }
+
+
 }
