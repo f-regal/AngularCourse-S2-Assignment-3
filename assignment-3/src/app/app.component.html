@@ -1,3 +1,3 @@
 <button (click) = "onDisplayDetails($event)">Display Details</button>
 <p *ngIf = "displayText">Secret Password = 'Tuna'</p>
-<h3 [ngStyle]="{backgroundColor: getColor()}" *ngFor= "let buttons of buttonClicks" >{{buttons}}</h3>
+<h3 *ngFor= "let buttons of buttonClicks; let i=index;" [ngStyle]="{backgroundColor: i > 4 ? 'blue' : 'white'}" [ngClass]="{whitetext: i > 4}">{{buttons}}</h3>
